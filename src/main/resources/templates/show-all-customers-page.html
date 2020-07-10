@@ -1,0 +1,18 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+	
+	<p>All customers</p>
+	
+	<table>
+	<tr th:each="customer: ${innerObject}">
+	<td th:text="${customer.getcId()}" />
+    <td th:text="${customer.getName()}" />
+    <td th:text="${customer.getAge()}" />
+   
+</tr>
+	
+	</table>
+
+	</body>
+
+</html>
