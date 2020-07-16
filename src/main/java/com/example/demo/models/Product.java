@@ -3,6 +3,9 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import com.example.demo.models.enums.ProductType;
 import javax.validation.constraints.Min;
+
+//import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -53,9 +56,13 @@ public class Product {
 		}
 
 		public Product(String title, float price) {
-			
-			this.title = title;
+			if(title!=null&&title.matches("[a-zA-Z\s]+$"))
+				this.title = title;
+			else
+				this.title = "";
+			if(price>0)
 			this.price = price;
+			else this.price=0;
 			//this.type = type;
 		}
 		
